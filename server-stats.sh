@@ -10,7 +10,10 @@ echo "[2.] Total memory usage (Free vs Used including percentage):\n............
 free | grep 'Mem:' | awk '{print "total used: " $3/1024 "MiB (" ($3/$2)*100 "%)" "\ntotal free: " $4/1024 "MiB (" ($4/$2)*100 "%)"}'
 
 echo "\n[3.] Total disk usage (Free vs Used including percentage):\n.........................................................."
-df -h / | grep "dev" | awk '{print "used: " $3 "(" $5 ")\n" "free: " $4 "(" 100-$5 ")"}'
+df -h / | grep "dev" | awk '{print "used: " $3 " (" $5 ")\n" "free: " $4 " (" 100-$5 "%)"}'
 
 echo "\n[4.] Top 5 processes by CPU usage:\n.........................................................."
 ps -eo pid,ppid,cmd,%cpu --sort=-%cpu | grep -v "ps -eo" | head -n 6
+
+echo "\n[5.] Top 5 processes by Memory usage:\n.........................................................."
+ps -eo pid,ppid,cmd,%mem --sort=-%mem | grep -v "ps -eo" | head -n 6
