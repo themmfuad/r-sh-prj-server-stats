@@ -9,4 +9,5 @@ Project URL of Roadmap.sh:
 https://roadmap.sh/projects/server-stats
 
 Preview Image:
+
 ![preview-image](preview.png)
